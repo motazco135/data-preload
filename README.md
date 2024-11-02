@@ -129,7 +129,7 @@ durability and long-term storage with Redis persistence features.
 Our Architecture Approach :
 
 <figure>
-<img src="resources/redis/RedisArch.png"
+<img src="https://motazco135.github.io/blog/resources/redis/RedisArch.png"
 alt="resources/redis/RedisArch.png" />
 </figure>
 
@@ -447,7 +447,7 @@ Kafka Connect plugins directory. After installation completed we should
 restart the container and the connector will appear as following :
 
 <figure>
-<img src="resources/redis/kafka-sink-redis.png"
+<img src="https://motazco135.github.io/blog/resources/redis/kafka-sink-redis.png"
 alt="Confluent Kafka Redis Sink connector" />
 <figcaption>JDBC Source Connector for Confluent Platform</figcaption>
 </figure>
@@ -561,7 +561,7 @@ contains the messages or not:
         VALUES (DEFAULT, 'ref-01'::varchar, 1::integer, 1::integer, 10::integer, 'Credit'::varchar, DEFAULT,Default);
 
 <figure>
-<img src="resources/redis/kafka-msgs.png"
+<img src="https://motazco135.github.io/blog/resources/redis/kafka-msgs.png"
 alt="Confluent Kafka Topics" />
 <figcaption>Messages are available at kafka topics</figcaption>
 </figure>
@@ -590,7 +590,7 @@ Kafka Connect plugins directory. After installation completed we should
 restart the container and the connector will appear as following :
 
 <figure>
-<img src="resources/redis/kafka-sink-redis.png"
+<img src="https://motazco135.github.io/blog/resources/redis/kafka-sink-redis.png"
 alt="Confluent Kafka Redis Sink connector" />
 <figcaption>Redis Sink Connector for Confluent Platform</figcaption>
 </figure>
@@ -657,7 +657,7 @@ Now we will configure Redis Sink Connector for each kafka topic:
     If we check Redis Database it will contain :
 
     <figure>
-    <img src="resources/redis/Redis-DB.png" alt="Redis Database" />
+    <img src="https://motazco135.github.io/blog/resources/redis/Redis-DB.png" alt="Redis Database" />
     <figcaption aria-hidden="true">Redis Database</figcaption>
     </figure>
 
@@ -731,7 +731,7 @@ choice.
     RedisDocumentRepository class as the type of our Data Repositories.
 
     <figure>
-    <img src="resources/redis/main.png" alt="Main Class" />
+    <img src="https://motazco135.github.io/blog/resources/redis/main.png" alt="Main Class" />
     <figcaption aria-hidden="true">Main Class</figcaption>
     </figure>
 
@@ -817,7 +817,7 @@ requires.
 -   Run Request Call the customer service by customer id =1
 
 <figure>
-<img src="resources/redis/request.png" alt="Get Cutomer Profile" />
+<img src="https://motazco135.github.io/blog/resources/redis/request.png" alt="Get Cutomer Profile" />
 <figcaption>Customer Profile</figcaption>
 </figure>
 
