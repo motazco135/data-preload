@@ -22,9 +22,9 @@ public class AccountController {
 
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<Account>> getAccountsByCustomerId(@PathVariable String customerId) {
-        Optional<List<Account>> accountDtos = accountService.getCustomerAccountList(customerId);
-        if(accountDtos.isPresent()) {
-            return ResponseEntity.ok(accountDtos.get());
+        Optional<List<Account>> optionalAccountList = accountService.getCustomerAccountList(customerId);
+        if(optionalAccountList.isPresent()) {
+            return ResponseEntity.ok(optionalAccountList.get());
         }
         return ResponseEntity.notFound().build();
     }

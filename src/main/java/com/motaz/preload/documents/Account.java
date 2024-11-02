@@ -3,9 +3,11 @@ package com.motaz.preload.documents;
 import com.google.gson.annotations.SerializedName;
 import com.redis.om.spring.annotations.Document;
 import com.redis.om.spring.annotations.Indexed;
-import com.redis.om.spring.annotations.Searchable;
 import com.redis.om.spring.annotations.TagIndexed;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 
@@ -19,12 +21,11 @@ public class Account {
     @Indexed
     private String id ;
 
-    @TagIndexed(fieldName = "account_number") //to search exact
+    @Indexed(fieldName = "account_number") //to search exact
     @SerializedName("account_number")
     private String accountNumber;
 
-    @Indexed
-    @Searchable(fieldName = "account_status")//to search with contains
+    @TagIndexed(fieldName = "account_status")//to search with contains
     @SerializedName("account_status")
     private String accountStatus;
 
@@ -32,7 +33,6 @@ public class Account {
     private String accountBalance;
 
     @Indexed
-    @TagIndexed(fieldName = "customer_id")
     @SerializedName("customer_id")
     private String customerId;
 

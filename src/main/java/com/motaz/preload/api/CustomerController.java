@@ -1,13 +1,14 @@
 package com.motaz.preload.api;
 
-import com.motaz.preload.documents.Account;
 import com.motaz.preload.documents.Customer;
 import com.motaz.preload.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,7 +26,4 @@ public class CustomerController {
         }
         return ResponseEntity.notFound().build();
     }
-
-
-
 }
