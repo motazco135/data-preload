@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDateTime;
+
 @Data
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
@@ -37,5 +39,12 @@ public class Transaction {
     @TagIndexed(fieldName = "transaction_type")
     @SerializedName("transaction_type")
     private String transactionType;
+
+    @Indexed(fieldName = "created_at")
+    @SerializedName("created_at")
+    private Long createdAt;
+
+    @SerializedName("updated_at")
+    private Long updatedAt;
 
 }

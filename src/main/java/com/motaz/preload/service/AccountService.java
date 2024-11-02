@@ -19,7 +19,7 @@ public class AccountService {
 
     public Optional<List<Account>> getCustomerAccountList(String customerId){
         try{
-            Iterable<Account> accounts = accountRepository.findByCustomerId(Long.valueOf(customerId));
+            Iterable<Account> accounts = accountRepository.findByCustomerId(customerId);
             Optional<List<Account>> optionalAccountList = Optional.ofNullable(accounts)
                     .map(iterable -> StreamSupport.stream(iterable.spliterator(), false)
                             .collect(Collectors.toList()))

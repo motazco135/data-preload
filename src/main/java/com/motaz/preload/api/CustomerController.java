@@ -1,6 +1,7 @@
 package com.motaz.preload.api;
 
 import com.motaz.preload.documents.Customer;
+import com.motaz.preload.dtos.CompleteProfileResponse;
 import com.motaz.preload.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +19,20 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @GetMapping("/{customerId}/complete-profile")
+    @GetMapping("/{customerId}")
     public ResponseEntity<Customer> getCustomerProfile(@PathVariable String customerId) {
         Optional<Customer> profile = customerService.getCustomerProfile(customerId);
         if(profile.isPresent()) {
            return ResponseEntity.ok(profile.get());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{customerId}/complete-profile")
+    public ResponseEntity<CompleteProfileResponse> getCustomerCompleteProfile(@PathVariable String customerId) {
+        Optional<CompleteProfileResponse> profile = customerService.getCustomerCompleteProfile(customerId);
+        if(profile.isPresent()) {
+            return ResponseEntity.ok(profile.get());
         }
         return ResponseEntity.notFound().build();
     }

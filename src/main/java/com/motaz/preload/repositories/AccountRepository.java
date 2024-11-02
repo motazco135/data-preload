@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepository extends RedisDocumentRepository<Account,String> {
 
-    Iterable<Account> findByCustomerId(Long customerId);
+    Iterable<Account> findByCustomerId(String customerId);
 }
