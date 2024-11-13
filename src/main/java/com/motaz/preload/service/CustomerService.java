@@ -37,15 +37,12 @@ public class CustomerService {
             return Optional.empty();
         }
         Iterable<Account> accounts = accountRepository.findByCustomerId(customerId);
-        Map<Account, List<Transaction>> accountTransactions = new HashMap<>();
         List<AccountResponse> accountResponseList = new ArrayList<>();
         accounts.forEach(account -> {
             List<Transaction> recentTransactions = transactionRepository.findTop10ByAccountIdOrderByCreatedAtDesc(account.getId());
-            //accountTransactions.put(account, recentTransactions);
             accountResponseList.add(new AccountResponse(account,recentTransactions) );
         });
 
-        AccountResponse accountResponse = new AccountResponse();
         return Optional.of(new CompleteProfileResponse(optionalCustomer.get(), accountResponseList));
     }
 
