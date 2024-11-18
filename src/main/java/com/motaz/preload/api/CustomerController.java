@@ -1,5 +1,6 @@
 package com.motaz.preload.api;
 
+import com.motaz.preload.documents.AverageSpending;
 import com.motaz.preload.documents.Customer;
 import com.motaz.preload.dtos.CompleteProfileResponse;
 import com.motaz.preload.service.CustomerService;
@@ -33,6 +34,15 @@ public class CustomerController {
         Optional<CompleteProfileResponse> profile = customerService.getCustomerCompleteProfile(customerId);
         if(profile.isPresent()) {
             return ResponseEntity.ok(profile.get());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{customerId}/average-spending")
+    public ResponseEntity<AverageSpending> getCustomerAverageSpending(@PathVariable String customerId) {
+        Optional<AverageSpending> averageSpending = customerService.getCustomerAverageSpending(customerId);
+        if(averageSpending.isPresent()) {
+            return ResponseEntity.ok(averageSpending.get());
         }
         return ResponseEntity.notFound().build();
     }

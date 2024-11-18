@@ -1,11 +1,13 @@
 package com.motaz.preload.service;
 
 import com.motaz.preload.documents.Account;
+import com.motaz.preload.documents.AverageSpending;
 import com.motaz.preload.documents.Customer;
 import com.motaz.preload.documents.Transaction;
 import com.motaz.preload.dtos.AccountResponse;
 import com.motaz.preload.dtos.CompleteProfileResponse;
 import com.motaz.preload.repositories.AccountRepository;
+import com.motaz.preload.repositories.AverageSpendingRepository;
 import com.motaz.preload.repositories.CustomerRepository;
 import com.motaz.preload.repositories.TransactionRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     private final AccountRepository accountRepository;
     private final TransactionRepository transactionRepository;
+    private final AverageSpendingRepository averageSpendingRepository;
 
     public Optional<Customer> getCustomerProfile(String customerId)  {
         Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
@@ -44,6 +47,10 @@ public class CustomerService {
         });
 
         return Optional.of(new CompleteProfileResponse(optionalCustomer.get(), accountResponseList));
+    }
+
+    public Optional<AverageSpending> getCustomerAverageSpending(String customerId){
+        return averageSpendingRepository.findById(customerId);
     }
 
 
